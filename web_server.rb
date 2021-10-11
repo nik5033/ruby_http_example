@@ -1,4 +1,5 @@
 require 'socket'
+require 'cgi'
 
 server = TCPServer.new 5678
 
@@ -7,6 +8,8 @@ while session = server.accept
    puts request
 
    first_http = request.split # 1 - method, 2 - path, 3-HTTP
+   reg = /[?].*/.match(first_http[1])
+   puts CGI::parse(first_http[1])
 
    session.print "HTTP/1.1 200\r\n"
    session.print "Content-Type: text/html\r\n"
@@ -23,3 +26,5 @@ while session = server.accept
 
    session.close
 end
+
+#[?].*
