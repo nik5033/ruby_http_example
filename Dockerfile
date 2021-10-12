@@ -6,3 +6,5 @@ COPY ./Gemfile* ./
 RUN bundle install
 
 COPY . .
+
+CMD ["ruby", "sinatra_server.rb"]

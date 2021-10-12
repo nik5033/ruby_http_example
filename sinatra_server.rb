@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'cgi'
 
 set :bind, '0.0.0.0'
 set :port, 5678
@@ -12,6 +13,5 @@ get '/time' do
 end
 
 get '/sum' do
-    params = request.env['rack.request.query_hash']
-    puts params['a'].to_i + params['b'].to_i
+    (params['a'].to_i + params['b'].to_i).to_s
 end
