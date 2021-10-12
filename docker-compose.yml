@@ -1,0 +1,30 @@
+version: "3.9"
+
+services:
+  client:
+    build: 
+      context: ./client/
+      dockerfile: Dockerfile
+    networks: 
+      - service
+    command: ruby tst_httpclient.rb
+    volumes:
+      - ./client:/app
+    expose:      
+      - "5678"
+
+  server:
+    build: 
+      context: ./server/  
+      dockerfile: Dockerfile
+    networks: 
+      - service
+    command: ruby sinatra_server.rb
+    volumes:
+      - ./server:/app
+    expose:
+        - "5679"
+
+networks:
+  service:
+    name: service
