@@ -12,6 +12,6 @@ get '/time' do
 end
 
 get '/sum' do
-    puts (params['a'].to_i + params['b'].to_i).to_s
+    #puts (params['a'].to_i + params['b'].to_i).to_s
     (params['a'].to_i + params['b'].to_i).to_s
 end

@@ -3,7 +3,7 @@ require 'json'
 
 client = HTTPClient.new
 query = { 'a' => '3', 'b' => '7' }
-uri = 'https://0.0.0.0:5679/sum'
+uri = 'http:/kubernetes.docker.internal:5679/sum'
 
 begin
     response = client.get(uri, query)
@@ -12,5 +12,6 @@ begin
 
     puts result
 rescue 
+    puts "Retry to connect!"
     retry
 end

@@ -10,7 +10,7 @@ services:
     command: ruby tst_httpclient.rb
     volumes:
       - ./client:/app
-    expose:      
+    ports:      
       - "5678"
 
   server:
@@ -22,7 +22,7 @@ services:
     command: ruby sinatra_server.rb
     volumes:
       - ./server:/app
-    expose:
+    ports:
         - "5679"
 
 networks:
