@@ -6,3 +6,5 @@ COPY ./Gemfile* ./
 RUN bundle install
 
 COPY . .
+
+CMD ["ruby", "tst_httpclient.rb"]
